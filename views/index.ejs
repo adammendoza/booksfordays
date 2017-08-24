@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BooksForDays</title>
+  </head>
+  <body>
+
+    <ul class="books">
+      <% for(var i = 0; i < books.length; i++) {%>
+        <li class="book">
+          <span><%= books[i].title %></span>
+        </li>
+      <% } %>
+    </ul>
+
+    <form action="/books" class="new-book" method="post">
+      <input type="text" placeholder="title" name="title">
+      <button type="submit">Submit</button>
+    </form>
+
+  </body>
+</html>

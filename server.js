@@ -16,7 +16,10 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req,res) => {
-  var cursor = db.collection('books').find();
+  db.collection('books').find().toArray((err, result) => {
+    if (err) return console.log(err);
+    res.render('index.ejs', {books: result})
+  });
 })
 
 app.post('/books', (req,res) => {
