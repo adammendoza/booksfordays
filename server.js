@@ -11,10 +11,12 @@ MongoClient.connect('mongodb://knweber:Brewers2016@ds159033.mlab.com:59033/books
   })
 });
 
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req,res) => {
-  res.sendFile(__dirname + '/index.html');
+  var cursor = db.collection('books').find();
 })
 
 app.post('/books', (req,res) => {
