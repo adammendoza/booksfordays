@@ -9,7 +9,7 @@ app.get('/', (req,res) => {
 })
 
 app.post('/books', (req,res) => {
-  console.log("BOOKS!!!!");
+  console.log(req.body);
 })
 
 app.listen(3000, function(){
