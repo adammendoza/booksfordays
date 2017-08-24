@@ -35,5 +35,15 @@ app.post('/books', (req,res) => {
 })
 
 app.put('/books', (req,res) => {
-  
+  db.collection('books')
+  .findOneAndUpdate({title: 'Calvin and Hobbes'}, {
+    $set: {
+      title: req.body.title
+    }
+  }, {
+    upsert: true
+  }, (err,result) => {
+    if (err) return res.send(err)
+    res.send(result)
+  })
 })
