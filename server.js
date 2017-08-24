@@ -13,6 +13,8 @@ MongoClient.connect('mongodb://knweber:Brewers2016@ds159033.mlab.com:59033/books
 
 app.set('view engine', 'ejs');
 
+app.use(express.static('public'));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req,res) => {
@@ -30,4 +32,8 @@ app.post('/books', (req,res) => {
     res.redirect('/');
   })
   console.log(req.body);
+})
+
+app.put('/books', (req,res) => {
+  
 })
