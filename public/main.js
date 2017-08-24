@@ -7,5 +7,10 @@ update.addEventListener('click', () => {
     body: JSON.stringify({
       'title': 'Harry Potter'
     })
+  }).then(res => {
+    if (res.ok) return res.json();
+  }).then(data => {
+    console.log(data);
+    window.location.reload(true);
   })
 })
